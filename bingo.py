@@ -13,7 +13,7 @@ def chunks(l, n):
         yield l[i:i + n]
 
 def imagize(src):
-    return '<img src="../{}" width="600px">'.format(src)
+    return '<img src="../{}" width="400px">'.format(src)
 
 def generate_3_row(chunks):
     (a,b,c)=chunks
@@ -23,7 +23,7 @@ def generate_bingo(sample):
     chunks3 = list(chunks(sample, 3))
     rows = [generate_3_row(chunk) for chunk in chunks3]
     table = "".join(rows)
-    ret = "<html><head><style></style></head><body><table><tbody>{}</tbody></table></body></html>".format(table)
+    ret = "<html><head><style>.td img {{display: block;}}</style></head><body><table><tbody>{}</tbody></table></body></html>".format(table)
     return ret
 
 def generate_file(num):
